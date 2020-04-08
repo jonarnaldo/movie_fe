@@ -3,12 +3,11 @@ import './searchBar.css';
 
 function SearchBar({ handleChange, handleSubmit, input}) {
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="search-bar" onSubmit={handleSubmit}>
       <label>
         Search:
-        <input type="text" value={input} onChange={handleChange} />
+        <input className="search-input" type="text" value={input} onChange={handleChange} />
       </label>
-      <input type="submit" value="Submit" />
     </form>
   );
 }
