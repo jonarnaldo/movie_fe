@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GridList, GridListTile, GridListTileBar, Container } from '@material-ui/core';
+import { GridList, GridListTile, GridListTileBar } from '@material-ui/core';
 import axios from 'axios';
 import './App.css';
 import SearchBar from './components/searchBar';
@@ -82,7 +82,7 @@ function App() {
       </div>
       { 
         !isEmpty(detail) && 
-        <Container>
+        <div className="container">
           <div className="details">
             <div className='poster'>
               {detail.poster_path ?
@@ -98,11 +98,14 @@ function App() {
                 <li>release date: {detail.release_date}</li>
                 <li>run time: {detail.runtime}</li>
                 <li>vote_average: {detail.vote_average}</li>
-                <li>overview: {detail.overview}</li>
+                <li>
+                  <div>overview:</div>
+                  <div>{detail.overview}</div>
+                </li>
               </ul>
             </div>
           </div>
-        </Container>
+        </div>
       }
       {
         list &&
