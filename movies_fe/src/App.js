@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { GridList, GridListTile, GridListTileBar } from '@material-ui/core';
+import { GridList, GridListTile, GridListTileBar, Container } from '@material-ui/core';
 import axios from 'axios';
 import './App.css';
 import SearchBar from './components/searchBar';
+import { isEmpty } from 'lodash';
 
 function App() {
   const [list, setList] = useState(undefined);
@@ -63,6 +64,18 @@ function App() {
       <div className="App-header">
         <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} input={input} />
       </div>
+      { 
+        !isEmpty(detail) && 
+        <Container>
+          <div className="details">
+            <div className='poster'>
+              {detail.poster_path ?
+                <img src={`http://image.tmdb.org/t/p/w342${detail.poster_path}`} alt={detail.title} /> :
+                <div className='no-image-detail'>NO IMAGE</div>}
+            </div>
+          </div>
+        </Container>
+      }
       {
         list &&
         <GridList cellHeight={500} cols={5} spacing={0}>
