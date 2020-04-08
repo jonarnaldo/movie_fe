@@ -50,3 +50,19 @@
   color: white;
   padding: 10px;
 }
+
+.details {
+  display: flex;
+  flex-direction: row;
+  background-color: #515969;
+  color: white;
+}
+
+.details-info {
+  padding: 10px;
+}
+
+.details-list {
+  padding: 0px;
+  list-style: none;
+}

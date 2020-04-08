@@ -73,6 +73,18 @@ function App() {
                 <img src={`http://image.tmdb.org/t/p/w342${detail.poster_path}`} alt={detail.title} /> :
                 <div className='no-image-detail'>NO IMAGE</div>}
             </div>
+            <div className='details-info'>
+              <ul className='details-list'>
+                <li>tagline: {detail.tagline}</li>
+                <li>budget: &#36;{parseInt(`${detail.budget}`, 10).toLocaleString('en-US')}</li>
+                <li>budget: &#36;{parseInt(`${detail.revenue}`, 10).toLocaleString('en-US')}</li>
+                <li>genres: { detail.genres.map(genre => genre.name) }</li>
+                <li>release date: {detail.release_date}</li>
+                <li>run time: {detail.runtime}</li>
+                <li>vote_average: {detail.vote_average}</li>
+                <li>overview: {detail.overview}</li>
+              </ul>
+            </div>
           </div>
         </Container>
       }
