@@ -18,6 +18,21 @@ function App() {
     getPopular();
   }, []);
 
+  const find = (query) => {
+    axios
+    .get(`${baseURL}movies/find/`, {
+      params: { query},
+    })
+    .then(function (response) {
+      setIsLoaded(true);
+      setList(response.data.results)
+    })
+    .catch(function (error) {
+      setIsLoaded(true);
+      setError(error)
+    })
+  }
+
   const getPopular = () => {
     axios
       .get(`${baseURL}movies/popular`)
@@ -49,6 +64,7 @@ function App() {
   }
 
   const handleSubmit = (event) => {
+    (!isEmpty(input)) ? find(input) : getPopular();
     setDetail(null)
     event.preventDefault();
   }
