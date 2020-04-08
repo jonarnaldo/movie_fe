@@ -3,6 +3,7 @@
 ## Installation
 
 ```bash
+$ cd movies_fe
 $ npm install
 ```
 
