@@ -1,3 +1,5 @@
+![](demo.gif)
+
 ## Installation
 
 ```bash
